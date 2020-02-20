@@ -36,12 +36,13 @@ public class FlightsFoundJPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
         
         for(Airplane airplane: this.searchResult){
-            Object[] row = new Object[9];
+            Object[] row = new Object[6];
             row[0] = airplane;
             row[1] = airplane.getDepartureLocation();
             row[2] = airplane.getArrivalLocation();
             row[3] = airplane.getPreferTime();
             row[4] = airplane.getArrivalDate();
+            row[5] = airplane.getDepartureDate();
             dtm.addRow(row);
         }
         
@@ -65,7 +66,7 @@ public class FlightsFoundJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Airplane Number", "Departure Location", "Arrival Location", "Preferred Time", "Date"
+                "Airplane Number", "Departure Location", "Arrival Location", "Preferred Time", "Arrival Date", "Departure Date"
             }
         ));
         jScrollPane1.setViewportView(tblAirplanes);

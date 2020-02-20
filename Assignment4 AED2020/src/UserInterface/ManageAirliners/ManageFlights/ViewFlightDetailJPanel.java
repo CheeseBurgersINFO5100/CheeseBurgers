@@ -55,7 +55,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         
         Date departureDate = airplane.getDepartureDate();
         String departureDateString = formatter.format(departureDate);
-        txtArrivalDate.setText(departureDateString);
+        txtDepartureDate.setText(departureDateString);
     }
 
     /**
@@ -343,6 +343,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         airplane.setAirplaneNum(airplaneNum);
         airplane.setDepartureLocation(departureLocation );
         airplane.setArrivalLocation(arrivalLocation);
+        airplane.setArrivalDate(arrivalDate);
         airplane.setDepartureDate(departureDate);
         
         //validation of arrival arrivalDate and departure arrivalDate
@@ -357,7 +358,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         txtDepartureLocation.setText("");
         txtArrivalLocation.setText("");
         txtArrivalDate.setText("");
-        txtArrivalDate.setText("");
+        txtDepartureDate.setText("");
         radioBtnMorning.setSelected(false);
         radioBtnDayTime.setSelected(false);
         radioBtnEvening.setSelected(false);
@@ -369,6 +370,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         txtDepartureLocation.setEnabled(true);
         txtArrivalLocation.setEnabled(true);
         txtArrivalDate.setEnabled(true);
+        txtDepartureDate.setEnabled(true);
         radioBtnMorning.setEnabled(true);
         radioBtnDayTime.setEnabled(true);
         radioBtnEvening.setEnabled(true);
