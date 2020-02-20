@@ -264,39 +264,40 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         // TODO add your handling code here:   
-    String col  = ComboBoxCol.getSelectedItem().toString();
-    String type  = ComboBoxType.getSelectedItem().toString();
-    String rowNum  = ComboBoxRowNum.getSelectedItem().toString();
-    
-    Customer customer = customerDirectory.addCustomer();
-    customer.setAirplanePicked(airplane.getAirplaneNum());
-    customer.setName(txtName.getText());
-    customer.setSeatColumn(Integer.parseInt(col));
-    customer.setSeatType(type);
-    customer.setSeatRowNum(Integer.parseInt(rowNum));
-    
-      if (txtName.getText() == null ||txtName.getText().equals("")){
+        String col  = ComboBoxCol.getSelectedItem().toString();
+        String type  = ComboBoxType.getSelectedItem().toString();
+        String rowNum  = ComboBoxRowNum.getSelectedItem().toString();
+        
+        if(txtName.getText() == null ||txtName.getText().equals("")){
             JOptionPane.showMessageDialog(null, "You should enter a name", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }  
-      if(ComboBoxCol.getSelectedItem().toString()==null ||ComboBoxCol.getSelectedItem().toString().equals("") ){
-         JOptionPane.showMessageDialog(null, "You should select a seat column", "Warning",JOptionPane.WARNING_MESSAGE);
-         return;
-      }
-      if( ComboBoxType.getSelectedItem().toString()==null || ComboBoxType.getSelectedItem().toString().equals("") ){
-         JOptionPane.showMessageDialog(null, "You should select a seat Type", "Warning",JOptionPane.WARNING_MESSAGE);
-         return;
-      }
-      if(ComboBoxRowNum.getSelectedItem().toString()==null ||ComboBoxRowNum.getSelectedItem().toString().equals("") ){
-         JOptionPane.showMessageDialog(null, "You should select a seat row", "Warning",JOptionPane.WARNING_MESSAGE);
-         return;
-      }           
-    airplane.setSeatSelected(Integer.parseInt(col), type, Integer.parseInt(rowNum));
-    
-    ViewCustomerDiretoryJPanel panel = new ViewCustomerDiretoryJPanel(CardSequenceForFlightJPanel,customerDirectory);
-    CardSequenceForFlightJPanel.add("CreateNewFlightJPanel", panel);
-    CardLayout layout = (CardLayout) CardSequenceForFlightJPanel.getLayout();
-    layout.next(CardSequenceForFlightJPanel);
+        if(ComboBoxCol.getSelectedItem().toString()==null ||ComboBoxCol.getSelectedItem().toString().equals("") ){
+            JOptionPane.showMessageDialog(null, "You should select a seat column", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if( ComboBoxType.getSelectedItem().toString()==null || ComboBoxType.getSelectedItem().toString().equals("") ){
+            JOptionPane.showMessageDialog(null, "You should select a seat Type", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(ComboBoxRowNum.getSelectedItem().toString()==null ||ComboBoxRowNum.getSelectedItem().toString().equals("") ){
+            JOptionPane.showMessageDialog(null, "You should select a seat row", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Customer customer = customerDirectory.addCustomer();
+        customer.setAirplanePicked(airplane.getAirplaneNum());
+        customer.setName(txtName.getText());
+        customer.setSeatColumn(Integer.parseInt(col));
+        customer.setSeatType(type);
+        customer.setSeatRowNum(Integer.parseInt(rowNum));
+
+        airplane.setSeatSelected(Integer.parseInt(col), type, Integer.parseInt(rowNum));
+
+        ViewCustomerDiretoryJPanel panel = new ViewCustomerDiretoryJPanel(CardSequenceForFlightJPanel,customerDirectory);
+        CardSequenceForFlightJPanel.add("CreateNewFlightJPanel", panel);
+        CardLayout layout = (CardLayout) CardSequenceForFlightJPanel.getLayout();
+        layout.next(CardSequenceForFlightJPanel);
     
    
     }//GEN-LAST:event_btnBookActionPerformed
@@ -313,14 +314,15 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-    ComboBoxRowNum.removeAllItems();
-    String c  = ComboBoxCol.getSelectedItem().toString();
-    String t  = ComboBoxType.getSelectedItem().toString();
-    
-    int[] rowNum = airplane.getAvailableRowNum(Integer.parseInt(c), t);
-    for(int i = 0; i< rowNum.length; i++)
-        ComboBoxRowNum.addItem(String.valueOf(rowNum[i]));
+        ComboBoxRowNum.removeAllItems();
+        String c  = ComboBoxCol.getSelectedItem().toString();
+        String t  = ComboBoxType.getSelectedItem().toString();
 
+        int[] rowNum = airplane.getAvailableRowNum(Integer.parseInt(c), t);
+        for(int i = 0; i< rowNum.length; i++){
+            if(rowNum[i] != 0)
+                ComboBoxRowNum.addItem(String.valueOf(rowNum[i]));
+        }
     }//GEN-LAST:event_btnViewActionPerformed
 
 
