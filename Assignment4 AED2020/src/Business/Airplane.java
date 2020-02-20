@@ -17,7 +17,8 @@ public class Airplane {
     private String departureLocation;
     private String arrivalLocation;
     private String preferTime;
-    private Date date;
+    private Date arrivalDate;
+    private Date departureDate;
     private boolean[][] seatsTable;
     private int availableSeatsNum;
 
@@ -60,9 +61,13 @@ public class Airplane {
         this.preferTime = preferTime;
     }
 
-    public Date getDate() {
+    public Date getArrivalDate() {
 
-        return date;
+        return arrivalDate;
+    }
+    
+    public Date getDepartureDate(){
+        return departureDate;
     }
 
     public int[] getAvailableCol() {
@@ -162,15 +167,28 @@ public class Airplane {
 
 
     
-    public void setDate(String date) {
+    public void setArrivalDate(String arrivalDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         try{
-            this.date = sdf.parse(date);
+            this.arrivalDate = sdf.parse(arrivalDate);
         }catch(Exception e){
             return;
         }
     }
-
+    
+    public void setDepartureDate(String departureDate){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try{
+            this.departureDate = sdf.parse(departureDate);
+        }catch(Exception e){
+            return;
+        }
+    }
+    
+    public boolean isDateUnnormal(){
+        return this.arrivalDate.before(this.departureDate);
+    }
+    
     public boolean[][] getSeatsTable() {
         return seatsTable;
     }

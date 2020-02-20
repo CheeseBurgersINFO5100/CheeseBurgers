@@ -49,10 +49,13 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         }
         
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        Date date = airplane.getDate();
-        String dateString = formatter.format(date);
-        txtDate.setText(dateString);
+        Date arrivalDate = airplane.getArrivalDate();
+        String arrivalDateString = formatter.format(arrivalDate);
+        txtArrivalDate.setText(arrivalDateString);
         
+        Date departureDate = airplane.getDepartureDate();
+        String departureDateString = formatter.format(departureDate);
+        txtArrivalDate.setText(departureDateString);
     }
 
     /**
@@ -77,7 +80,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         btnConfirm = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        txtDate = new javax.swing.JTextField();
+        txtArrivalDate = new javax.swing.JTextField();
         radioBtnMorning = new javax.swing.JRadioButton();
         radioBtnDayTime = new javax.swing.JRadioButton();
         radioBtnEvening = new javax.swing.JRadioButton();
@@ -85,6 +88,8 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtAvailableSeatsNum = new javax.swing.JTextField();
+        txtDepartureDate = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         jPanel2.setPreferredSize(new java.awt.Dimension(700, 596));
 
@@ -125,9 +130,9 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel12.setText("Date");
+        jLabel12.setText("Arrival Date");
 
-        txtDate.setEnabled(false);
+        txtArrivalDate.setEnabled(false);
 
         buttonGroup1.add(radioBtnMorning);
         radioBtnMorning.setText("Morning");
@@ -159,6 +164,10 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
 
         txtAvailableSeatsNum.setEnabled(false);
 
+        txtDepartureDate.setEnabled(false);
+
+        jLabel13.setText("Departure Date");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -186,14 +195,6 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAvailableSeatsNum, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtArrivalLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,8 +213,18 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(radioBtnDayTime)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radioBtnEvening)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(radioBtnEvening))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAvailableSeatsNum, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtArrivalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 193, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,20 +249,27 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
                     .addComponent(radioBtnMorning)
                     .addComponent(radioBtnDayTime)
                     .addComponent(radioBtnEvening))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtArrivalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtAvailableSeatsNum, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                    .addComponent(txtAvailableSeatsNum, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnBook, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addComponent(btnBook, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBack)
                 .addContainerGap())
@@ -278,31 +296,35 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtDepartureLocationActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
+        //Validation of prefer time
         Airplane airplane = this.airplane;   
-    if(radioBtnMorning.isSelected()){       
-        airplane.setPreferTime("Morning");       
-    }
-    else if(radioBtnDayTime.isSelected()){
-        airplane.setPreferTime("Day time");       
-    }
-    else if(radioBtnEvening.isSelected()){
-        airplane.setPreferTime("Evening");
-    }
-    else{
-        JOptionPane.showMessageDialog(null, "Please select a prefered time of day for this airplane!", "Warning",JOptionPane.WARNING_MESSAGE); 
-    }
-    
-    String airplaneNum = txtFlightNum.getText();
-    String departureLocation = txtDepartureLocation.getText();
-    String arrivalLocation = txtArrivalLocation.getText();
-    String date = txtDate.getText();  
-
+        if(radioBtnMorning.isSelected()){       
+            airplane.setPreferTime("Morning");       
+        }
+        else if(radioBtnDayTime.isSelected()){
+            airplane.setPreferTime("Day time");       
+        }
+        else if(radioBtnEvening.isSelected()){
+            airplane.setPreferTime("Evening");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please select a prefered time of day for this airplane!", "Warning",JOptionPane.WARNING_MESSAGE); 
+        }
+        
+        //Get user's input
+        String airplaneNum = txtFlightNum.getText();
+        String departureLocation = txtDepartureLocation.getText();
+        String arrivalLocation = txtArrivalLocation.getText();
+        String arrivalDate = txtArrivalDate.getText();  
+        String departureDate = txtDepartureDate.getText();
+        
+        //Validation of airplane number
         if (airplaneNum == null || airplaneNum.equals("")){
             JOptionPane.showMessageDialog(null, "You should enter at least one airplane number for this plane", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }  
         
+        //Validation of departure location and arrival location
         if (departureLocation  == null || departureLocation .equals("")){
             JOptionPane.showMessageDialog(null, "departureLocation  can't be empty!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
@@ -313,20 +335,29 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
             return;
         }
         
+        if(arrivalLocation.equals(departureLocation)){
+            JOptionPane.showMessageDialog(null, "Arrival location can't same as departure location!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
         airplane.setAirplaneNum(airplaneNum);
         airplane.setDepartureLocation(departureLocation );
         airplane.setArrivalLocation(arrivalLocation);
-        airplane.setDate(date);
-
+        airplane.setDepartureDate(departureDate);
         
+        //validation of arrival arrivalDate and departure arrivalDate
+        if(airplane.isDateUnnormal()){
+           JOptionPane.showMessageDialog(null, "Flight arrival time cannot ealier than departure time!!", "Warning", JOptionPane.WARNING_MESSAGE);
+           return;
+        }
 
         JOptionPane.showMessageDialog(null, "Car data successfully created!");
 
         txtFlightNum.setText("");
         txtDepartureLocation.setText("");
         txtArrivalLocation.setText("");
-        txtDate.setText("");
+        txtArrivalDate.setText("");
+        txtArrivalDate.setText("");
         radioBtnMorning.setSelected(false);
         radioBtnDayTime.setSelected(false);
         radioBtnEvening.setSelected(false);
@@ -337,7 +368,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
         txtFlightNum.setEnabled(true);
         txtDepartureLocation.setEnabled(true);
         txtArrivalLocation.setEnabled(true);
-        txtDate.setEnabled(true);
+        txtArrivalDate.setEnabled(true);
         radioBtnMorning.setEnabled(true);
         radioBtnDayTime.setEnabled(true);
         radioBtnEvening.setEnabled(true);
@@ -373,6 +404,7 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -380,9 +412,10 @@ public class ViewFlightDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton radioBtnDayTime;
     private javax.swing.JRadioButton radioBtnEvening;
     private javax.swing.JRadioButton radioBtnMorning;
+    private javax.swing.JTextField txtArrivalDate;
     private javax.swing.JTextField txtArrivalLocation;
     private javax.swing.JTextField txtAvailableSeatsNum;
-    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtDepartureDate;
     private javax.swing.JTextField txtDepartureLocation;
     private javax.swing.JTextField txtFlightNum;
     // End of variables declaration//GEN-END:variables

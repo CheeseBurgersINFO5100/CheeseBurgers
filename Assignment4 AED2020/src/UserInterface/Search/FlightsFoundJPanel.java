@@ -41,7 +41,7 @@ public class FlightsFoundJPanel extends javax.swing.JPanel {
             row[1] = airplane.getDepartureLocation();
             row[2] = airplane.getArrivalLocation();
             row[3] = airplane.getPreferTime();
-            row[4] = airplane.getDate();
+            row[4] = airplane.getArrivalDate();
             dtm.addRow(row);
         }
         

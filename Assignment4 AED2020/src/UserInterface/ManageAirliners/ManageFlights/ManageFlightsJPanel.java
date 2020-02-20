@@ -43,12 +43,13 @@ public class ManageFlightsJPanel extends javax.swing.JPanel {
         }
         
         for(Airplane airplane: airliner.getAirplaneDirectory()){
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
             row[0] = airplane;
             row[1] = airplane.getDepartureLocation() ;
             row[2] = airplane.getArrivalLocation();
             row[3] = airplane.getPreferTime() ;
-            row[4] = airplane.getDate();                   
+            row[4] = airplane.getArrivalDate();
+            row[5] = airplane.getDepartureDate();
             dtm.addRow(row);
         }
     }
@@ -62,12 +63,13 @@ public class ManageFlightsJPanel extends javax.swing.JPanel {
         }
         
         for(Airplane airplane: airliner.getAirplaneDirectory()){
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
             row[0] = airplane;
             row[1] = airplane.getDepartureLocation() ;
             row[2] = airplane.getArrivalLocation();
             row[3] = airplane.getPreferTime() ;
-            row[4] = airplane.getDate();                   
+            row[4] = airplane.getArrivalDate();    
+            row[5] = airplane.getDepartureDate();
             dtm.addRow(row);
         }
     }
@@ -127,7 +129,7 @@ public class ManageFlightsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Flight Number", "Departure Location", "Arrival Location", "Preferred Time", "Date"
+                "Flight Number", "Departure Location", "Arrival Location", "Preferred Time", "Arrival Date", "Departure Date"
             }
         ));
         jScrollPane1.setViewportView(tblAirplane);

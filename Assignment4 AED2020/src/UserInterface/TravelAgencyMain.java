@@ -73,8 +73,9 @@ public class TravelAgencyMain extends javax.swing.JFrame {
                     airplane.setDepartureLocation(split[1]);
                     airplane.setArrivalLocation(split[2]);
                     airplane.setPreferTime(split[3]);
-                    airplane.setDate(split[4]);
-                    airplane.updateSeatsTable(Integer.valueOf(split[5]));
+                    airplane.setArrivalDate(split[4]);
+                    airplane.setDepartureDate(split[5]);
+                    airplane.updateSeatsTable(Integer.valueOf(split[6]));
 
                 }
                     

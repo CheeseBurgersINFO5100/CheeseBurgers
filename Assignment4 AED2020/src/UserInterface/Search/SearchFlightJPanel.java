@@ -59,12 +59,15 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
         dateLabel = new javax.swing.JLabel();
         radioBtnDayTime = new javax.swing.JRadioButton();
         radioBtnMorning = new javax.swing.JRadioButton();
-        txtDate = new javax.swing.JTextField();
+        txtArrivalDate = new javax.swing.JTextField();
         radioBtnEvening = new javax.swing.JRadioButton();
         titleLabel = new javax.swing.JLabel();
         btnSearchByOtherConditions = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        dateLabel1 = new javax.swing.JLabel();
+        txtDepartureDate = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         flightNumLabel.setText("Flight number");
 
@@ -80,7 +83,7 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
 
         preferredTimeLabel.setText("Preferred time of day");
 
-        dateLabel.setText("Date");
+        dateLabel.setText("Arrival Date");
 
         btnGroup.add(radioBtnDayTime);
         radioBtnDayTime.setText("Day time");
@@ -110,42 +113,14 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("(MM/dd/yyyy)");
 
+        dateLabel1.setText("Departure Date");
+
+        jLabel4.setText("(MM/dd/yyyy)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(flightNumLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(preferredTimeLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ArrivalLocationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(departureLocationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(135, 135, 135)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDepartureLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtArrivalLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(radioBtnMorning)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(radioBtnDayTime)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(radioBtnEvening))
-                                    .addComponent(txtFlightNum, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(178, 178, 178))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -155,7 +130,44 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(659, 659, 659)
                         .addComponent(btnSearchByOtherConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ArrivalLocationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(radioBtnMorning)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnDayTime)
+                        .addGap(18, 18, 18)
+                        .addComponent(radioBtnEvening)
+                        .addGap(178, 178, 178))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(departureLocationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(135, 135, 135)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDepartureLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtArrivalLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtArrivalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel3))
+                                    .addComponent(txtFlightNum, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel4))))
+                            .addComponent(flightNumLabel)
+                            .addComponent(preferredTimeLabel))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +177,7 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(titleLabel))
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(flightNumLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFlightNum, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -179,9 +191,14 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
                     .addComponent(txtArrivalLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtArrivalDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDepartureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(preferredTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +228,8 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
         String flightNum = txtFlightNum.getText();
         String departureLocation = txtDepartureLocation.getText();
         String arrivalLocation = txtArrivalLocation.getText();
-        String dateString = txtDate.getText();
+        String arrivalDateString = txtArrivalDate.getText();
+        String departureDateString = txtDepartureDate.getText();
         String preferredTime = "";
         if(radioBtnDayTime.isSelected())
             preferredTime = "Day time";
@@ -225,7 +243,8 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
                 (departureLocation == null || departureLocation.equals("")) &&
                 (arrivalLocation == null || arrivalLocation.equals("")) &&
                 (preferredTime == null || preferredTime.equals("")) &&
-                (dateString == null || dateString.equals(""))){
+                (departureDateString == null || departureDateString.equals(""))&&
+                (departureDateString == null || departureDateString.equals(""))){
             
             JOptionPane.showMessageDialog(null, "You must enter at least one condition!");
             return;
@@ -259,19 +278,36 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
             }
         }
         
-        if(dateString != null && !dateString.equals("")){
+        if(arrivalDateString != null && !arrivalDateString.equals("")){
             //Check the foramt of date if date is one of the conditions
             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
             try{
-                Date date= sdf.parse(dateString);
+                Date arrivaldate= sdf.parse(arrivalDateString);
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "You must enter date as format of MM/dd/yyyy");
+                JOptionPane.showMessageDialog(null, "You must enter arrival date as format of MM/dd/yyyy");
                 return;
             }
             
-            this.searchResult = masterSchedule.searchAirplaneByDate(this.searchResult, dateString);
+            this.searchResult = masterSchedule.searchAirplaneByArrivalDate(this.searchResult, arrivalDateString);
             if(searchResult.isEmpty()){
-                JOptionPane.showMessageDialog(null, "The required departure locations is not exist in all flights!");
+                JOptionPane.showMessageDialog(null, "The required arrival date is not exist in all flights!");
+                return;
+            }
+        }
+        
+        if(departureDateString != null && !departureDateString.equals("")){
+            //Check the foramt of date if date is one of the conditions
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            try{
+                Date departuredate= sdf.parse(departureDateString);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "You must enter departure date as format of MM/dd/yyyy");
+                return;
+            }
+            
+            this.searchResult = masterSchedule.searchAirplaneByDepartureDate(this.searchResult, departureDateString);
+            if(searchResult.isEmpty()){
+                JOptionPane.showMessageDialog(null, "The required departure date is not exist in all flights!");
                 return;
             }
         }
@@ -298,16 +334,19 @@ public class SearchFlightJPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup btnGroup;
     private javax.swing.JButton btnSearchByOtherConditions;
     private javax.swing.JLabel dateLabel;
+    private javax.swing.JLabel dateLabel1;
     private javax.swing.JLabel departureLocationLabel;
     private javax.swing.JLabel flightNumLabel;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel preferredTimeLabel;
     private javax.swing.JRadioButton radioBtnDayTime;
     private javax.swing.JRadioButton radioBtnEvening;
     private javax.swing.JRadioButton radioBtnMorning;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JTextField txtArrivalDate;
     private javax.swing.JTextField txtArrivalLocation;
-    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtDepartureDate;
     private javax.swing.JTextField txtDepartureLocation;
     private javax.swing.JTextField txtFlightNum;
     // End of variables declaration//GEN-END:variables

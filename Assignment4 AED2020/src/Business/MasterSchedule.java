@@ -19,7 +19,7 @@ public class MasterSchedule {
     private ArrayList<Airplane> masterSchedule;
     
     public MasterSchedule(){
-        
+        masterSchedule = new ArrayList<>();
     }
 
     public ArrayList<Airplane> getMasterSchedule() {
@@ -86,14 +86,14 @@ public class MasterSchedule {
         return searchResult;
     }
     
-    public ArrayList<Airplane> searchAirplaneByDate(ArrayList<Airplane> airplaneDirectory, String dateString){
+    public ArrayList<Airplane> searchAirplaneByArrivalDate(ArrayList<Airplane> airplaneDirectory, String arrivalDateString){
         ArrayList<Airplane> searchResult = new ArrayList<Airplane>();
         
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         try{
-            Date date= sdf.parse(dateString);
+            Date arrivalDate= sdf.parse(arrivalDateString);
             for(Airplane airplane : airplaneDirectory){
-            if(airplane.getDate().compareTo(date) == 0)
+            if(airplane.getArrivalDate().compareTo(arrivalDate) == 0)
                 searchResult.add(airplane);
         }
         }catch(Exception e){
@@ -102,4 +102,22 @@ public class MasterSchedule {
        
         return searchResult;
     }
+    
+        public ArrayList<Airplane> searchAirplaneByDepartureDate(ArrayList<Airplane> airplaneDirectory, String departureDateString){
+        ArrayList<Airplane> searchResult = new ArrayList<Airplane>();
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try{
+            Date departureDate= sdf.parse(departureDateString);
+            for(Airplane airplane : airplaneDirectory){
+            if(airplane.getDepartureDate().compareTo(departureDate) == 0)
+                searchResult.add(airplane);
+        }
+        }catch(Exception e){
+            return searchResult;
+        }
+       
+        return searchResult;
+    }
+    
 }
