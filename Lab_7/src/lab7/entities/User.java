@@ -71,8 +71,9 @@ public class User {
             for(Comment c : this.getComments()){                              
                 if (c.getUserId() == this.id){
                     commentsNum += 1;
+                    likes += c.getLikes();
                 }
-                likes += c.getLikes();
+                
             }    
             
             for(Post p : posts.values()){
