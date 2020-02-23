@@ -1,5 +1,5 @@
 Comment-Id,Post-id,Posting-User-Id,Likes,Commenting-User-Id, Comment
-0,0,9,10,9,Some Random Commen with Id 0
+0,0,9,10,6,Some Random Commen with Id 0
 1,0,9,114,3,Some Random Commen with Id 1
 2,0,9,79,9,Some Random Commen with Id 2
 3,0,9,159,2,Some Random Commen with Id 3
@@ -172,5 +172,3 @@ Comment-Id,Post-id,Posting-User-Id,Likes,Commenting-User-Id, Comment
 170,39,6,48,5,Some Random Commen with Id 170
 171,39,6,193,9,Some Random Commen with Id 171
 172,39,6,51,5,Some Random Commen with Id 172
-,,,111.1965318,9,
-,,,199,51,
