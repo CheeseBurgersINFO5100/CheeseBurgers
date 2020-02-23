@@ -100,7 +100,7 @@ public class AnalysisHelper {
         Map<Integer, Comment> comments = DataStore.getInstance().getComments();
         List<Comment> commentList = new ArrayList<>(comments.values());
         
-        //Sort the comment list based on number of likes
+        //Sort the comment list based on number of likes, rewrite comparator.
         Collections.sort(commentList, new Comparator<Comment>(){
             @Override
             public int compare(Comment o1, Comment o2){
