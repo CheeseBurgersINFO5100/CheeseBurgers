@@ -180,7 +180,7 @@ public class AnalysisHelper {
            System.out.println(userList.get(i));
         }
     }
-    
+    // count post number for each user id
     public void getPostNum(List<Post> postList, List<User> userList){
         int id=0, num=0;
         for(User u : userList){
@@ -223,7 +223,7 @@ public class AnalysisHelper {
            System.out.println(userList.get(i));
         }
     }
-    
+    //count comment number for each user
     public void getCommentNum(List<Comment> commentList, List<User> userList){
         int id=0, num=0;
         for(User u : userList){
