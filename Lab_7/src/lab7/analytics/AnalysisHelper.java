@@ -175,6 +175,7 @@ public class AnalysisHelper {
         
         System.out.println();
         System.out.println("4. Top 5 inactive users based on total posts number:");
+        
         for(int i = 0;i < userList.size() && i < 5;i++){
            System.out.println(userList.get(i));
         }
