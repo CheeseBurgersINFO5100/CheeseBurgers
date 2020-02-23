@@ -15,7 +15,7 @@ import lab7.entities.User;
 
 /**
  *
- * @author harshalneelkamal
+ * @author Siyuan Zhang
  */
 public class Lab7 {
 
